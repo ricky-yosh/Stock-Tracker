@@ -5,29 +5,39 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  // O1JL0G5KHFREZKEY
+  const img = document.querySelector('img');
+  fetch('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=AAPL&interval=1min&apikey=O1JL0G5KHFREZKEY', {mode: 'cors'})
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      console.log(response);
+    })
+    .catch(function(response){
+      console.log("error");
+    });
 
   return (
     <>
+      <input
+        type="text"
+        placeholder="Search..."
+      />
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <img src="" alt="cats" />
+        <h1>VOO</h1>
+        <p>$300.12</p>
+        <h3>News:</h3>
+        <p>News</p>
+        <div>
+          <h4>Valuation</h4>
+          <div>
+            <p>Market Cap:</p>
+            <p>$130.02b</p>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
