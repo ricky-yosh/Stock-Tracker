@@ -8,7 +8,7 @@ const StockColumn = ({ data }) => {
         <div>
         <h1>{title}</h1>
         {list.map((item, index) => (
-            <div key={index}>
+            <div key={index}> 
             {item.header} ----------- {item.value}
             </div>
         ))}
