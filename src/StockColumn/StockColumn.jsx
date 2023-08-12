@@ -1,17 +1,20 @@
 import React from 'react';
 
 const StockColumn = ({ data }) => {
-    const title = data.Title;
+    const header = data.Header;
     const list = data.Data;
-
     return (
-        <div>
-        <h1>{title}</h1>
-        {list.map((item, index) => (
-            <div key={index}> 
-            {item.header} ----------- {item.value}
-            </div>
-        ))}
+        <div className='stock-column'>
+            <h2 className='column-header'>{header}</h2>
+            {list.map((item,index) => (
+                <>
+                    <hr />
+                    <div className="horizontal-items align-center space-between">
+                        <h6 className='row-title'>{item.title}</h6>
+                        <p className='row-title'>{item.data}</p>
+                    </div>
+                </>
+            ))}
         </div>
     );
 };
