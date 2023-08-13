@@ -1,32 +1,36 @@
 import { useState } from 'react'
-import MyLineChart from './MyLineChart';
+import StockColumn from './StockColumn';
+import StockColumnData from './StockColumnData';
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+// O1JL0G5KHFREZKEY
+// https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=AAPL&interval=1min&apikey=O1JL0G5KHFREZKEY
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search..."
-      />
       <div>
-        <MyLineChart></MyLineChart>
-        <h1>VOO</h1>
-        <p>$300.12</p>
-        <h3>News:</h3>
-        <p>News</p>
-        <div>
-          <h4>Valuation</h4>
-          <div>
-            <p>Market Cap:</p>
-            <p>$130.02b</p>
-          </div>
+        <div className='full-width-card text-center'>
+          <input
+            type="text"
+            placeholder="Search..."
+          />
+          <h1>AAPL</h1>
+          <p>$179.80</p>
+        </div>
+        <div className='full-width-card text-center'>
+          <h3>News:</h3>
+          <p>News</p>
+        </div>
+        <div className='full-width-card horizontal-items'>
+          {StockColumnData.map(section => (
+            <StockColumn key={section.title} title={section.title} items={section.items}></StockColumn>
+          ))}
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default App
