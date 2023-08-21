@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import StockColumn from './StockColumn';
 import StockColumnData from './StockColumnData';
-import './App.css'
+import Logo from './assets/logo.svg';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,6 +10,10 @@ function App() {
 
   return (
     <>
+    <header>
+      <img src={Logo} alt="Logo" />
+      <h3>StoTrack</h3>
+    </header>
       <div>
         <div className='full-width-card text-center'>
           <input
